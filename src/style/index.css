@@ -1,0 +1,79 @@
+body {
+    font-family: Helvetica, sans-serif;
+    color: #1b1a17;
+    /* min-width: 700px;
+    overflow-x: auto; */
+  }
+
+.bg-color-dark-orange{
+    background-color: #a35709;
+}
+
+.bg-color-black{
+    background-color: #1b1a17;
+}
+
+.bg-color-light-orange{
+    background-color: #ff8303;
+}
+
+.bg-color-white{
+    background-color: #f0e3ca;
+}
+
+.color-dark-orange{
+    color: #a35709;
+}
+
+.color-black{
+    color: #1b1a17;
+}
+
+.color-light-orange{
+    color: #ff8303;
+}
+
+.color-white{
+    color: #f0e3ca;
+}
+
+#search-bar{
+    border: 2px solid #f0e3ca;
+    border-radius: 15px !important;
+}
+
+#search-addon{
+    background-color: #f0e3ca;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 10em;
+    object-fit: fill;
+    border-radius: 3px;
+}
+
+.jumbotron{
+    border-radius: 25px;
+}
+
+.card{
+    border-radius: 8px;
+}
+
+#meal-item-image{
+    width: 100%;
+    height: 20em;
+    object-fit: fill;
+    border-radius: 3px;
+}
+
+.ingredients-list-container{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 250px;
+}
+
+#meal-item-info{
+    border-radius: 25px;
+}
