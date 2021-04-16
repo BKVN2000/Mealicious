@@ -6,15 +6,14 @@ class MealInstruction extends HTMLElement{
         this.appendChild(this.template.content.cloneNode(true));
 
         const ingredients = this.recipeItems;
-        const ingredientsList = document.querySelector('#ingredients-list');
-        console.log(ingredientsList);
+        const ingredientsList = this.querySelector('#ingredients-list')
+
         $.each(ingredients,(key,value)=>{
             $(`<li class="list-group-item d-flex justify-content-between align-items-center">
                     ${value.Ingredient}
                     <span class="badge badge-primary badge-pill">${value.Measurement}</span>
                 </li>`).appendTo(ingredientsList);
         });
-
     }
     
     get meal(){
@@ -46,24 +45,26 @@ class MealInstruction extends HTMLElement{
     }
 
     get recipeItems(){
-       const recipeItems = [];
-       let idx = 0;
+       let recipeItems = [];
+       let measurements = [];
 
-        $.each(this._meal,(key,value)=>{
+        $.each(this._meal,function(key,value){
             if (key.includes("strIngredient") && value){
-                let recipeItem = {};
+                let recipeItem = {Ingredient:"",Measurement:""};
                 recipeItem.Ingredient = value;
-                recipeItems.push(recipeItem)
+                recipeItems.push(recipeItem);
             }
+            else if(key.includes("strMeasure") && value){
+                measurements.push(value);
+            }
+        });
 
-            else if (key.includes("strMeasure") && value){
-                recipeItems[idx].Measurement = value;
-                idx++;
-            }
-        })
+        $.each(recipeItems,function(key,value){
+            value.Measurement = measurements[key];
+        });
 
         return recipeItems;
     }
 }
 
-window.customElements.define("meal-item-instruction",MealInstruction);
+customElements.define("meal-item-instruction",MealInstruction);

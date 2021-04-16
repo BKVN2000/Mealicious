@@ -22,6 +22,14 @@ class CategoryBar extends HTMLElement{
         });
     }
 
+    set clickHandler(handler){
+        this.querySelectorAll('category-button').forEach(item=>{
+            item.addEventListener('click',()=>{
+                const category = item.text;
+                handler(category);
+            });
+        });
+    }
     get template(){
         const template = document.createElement("template");
         
@@ -47,4 +55,4 @@ class CategoryBar extends HTMLElement{
     }
 }
 
-window.customElements.define("category-bar",CategoryBar);
+customElements.define("category-bar",CategoryBar);

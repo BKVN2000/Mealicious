@@ -5,16 +5,14 @@ class CategoryButton extends HTMLElement{
         this._text = this.getAttribute("text") || "";
     }
 
-    set clickHandler(handler){
-        this.querySelector('#category-button').addEventListener('click',handler);
-    }
-
     set category(category){
         this._category = category;
+        this._text = category.strCategory;
         this.appendChild(this.template.content.cloneNode(true));
     }
+
     get text(){
-        return this._text = text;
+        return this._text;
     }
 
     get template(){
@@ -34,4 +32,4 @@ class CategoryButton extends HTMLElement{
     }
 }
 
-window.customElements.define("category-button",CategoryButton);
+customElements.define("category-button",CategoryButton);

@@ -7,7 +7,7 @@ class apiController{
             const data = await response.json();
 
             if (data.meals){
-                return Promise.resolve(meals);
+                return Promise.resolve(data.meals);
             }
 
             throw Error("keyword not found");
@@ -32,11 +32,12 @@ class apiController{
 
     static async getMealByCategory(category){
         try{
+            console.log(category);
             const response = await fetch(`${mealAPI.Url}/filter.php?c=${category}`);
             const data = await response.json();
 
             if (data.meals){
-                return Promise.resolve(meals);
+                return Promise.resolve(data.meals);
             }
 
             throw Error("meal not found");

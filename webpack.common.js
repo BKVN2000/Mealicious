@@ -16,7 +16,11 @@ module.exports = {
             {
                 test: /\.(svg|eot|woff|woff2|ttf)$/,
                 use: ['file-loader']
-            }
+            },
+            {
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                type: 'asset/resource',
+            },
         ]
     },
     plugins: [

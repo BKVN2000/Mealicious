@@ -1,9 +1,8 @@
 class MealInfo extends HTMLElement{
-    constructor(){
-        super();
-    }
+
     set meal(meal){
         this._meal = meal;
+        console.log(meal);
         this.appendChild(this.template.content.cloneNode(true));
     }
     
@@ -13,7 +12,7 @@ class MealInfo extends HTMLElement{
 
     get template(){
         const template = document.createElement("template");
-        const {strMealThumb,strYoutube,strSource,strArea} = this._meal;
+        const {strMealThumb,strYoutube,strSource,strArea,strMeal} = this._meal;
 
         template.innerHTML = `
         <div class="row bg-color-white p-3" id="meal-item-info">
@@ -21,7 +20,7 @@ class MealInfo extends HTMLElement{
                 <img src="${strMealThumb}" alt="..." class="img-thumbnail" id="meal-item-image">
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-6 my-auto">
-                <h5>Fantasy T-shirt</h5>
+                <h5>${strMeal}</h5>
                 <div class="table-responsive">
                     <table class="table table-sm table-borderless mb-0">
                         <tbody>
@@ -47,4 +46,4 @@ class MealInfo extends HTMLElement{
     }
 }
 
-window.customElements.define("meal-item-info",MealInfo);
+customElements.define("meal-item-info",MealInfo);

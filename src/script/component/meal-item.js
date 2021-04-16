@@ -1,15 +1,11 @@
 class MealItem extends HTMLElement{
     constructor(){
         super();
-        this._text = this.getAttribute("text") || "";
-    }
-
-    set clickHandler(handler){
-        this.querySelector('#category-button').addEventListener('click',handler);
     }
 
     set meal(meal){
         this._meal = meal;
+        this.setAttribute("mealID",meal.idMeal)
         this.appendChild(this.template.content.cloneNode(true));
     }
 
@@ -19,7 +15,7 @@ class MealItem extends HTMLElement{
 
     get template(){
         const template = document.createElement("template");
-        const {strMeal,strMealThumb,strCategory} = this._meal;
+        const {strMeal,strMealThumb} = this._meal;
 
         template.innerHTML = `
         <div class="col-lg-3 col-md-4 col-sm-6 col-6 mt-2">
@@ -30,10 +26,6 @@ class MealItem extends HTMLElement{
                         ${strMeal}<i class="fas fa-utensils"></i>
                     </h5>
                 </div>
-            
-                <div class="card-footer">
-                    <a href="#" class="card-link">${strCategory}</a>
-                </div>
             </div>
         </div>
         `
@@ -42,4 +34,4 @@ class MealItem extends HTMLElement{
     }
 }
 
-window.customElements.define("meal-item",MealItem);
+customElements.define("meal-item",MealItem);
