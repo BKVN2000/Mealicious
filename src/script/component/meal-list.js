@@ -19,7 +19,6 @@ class MealList extends HTMLElement{
         this.querySelectorAll('meal-item').forEach(item=>{
             item.addEventListener('click',()=>{
                 const mealID = item.getAttribute("mealID");
-                console.log(mealID);
                 handler(mealID);
             });
         });

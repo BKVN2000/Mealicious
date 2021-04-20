@@ -2,7 +2,6 @@ class MealInfo extends HTMLElement{
 
     set meal(meal){
         this._meal = meal;
-        console.log(meal);
         this.appendChild(this.template.content.cloneNode(true));
     }
     

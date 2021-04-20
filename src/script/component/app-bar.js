@@ -5,8 +5,6 @@ class AppHeader extends HTMLElement {
 
     set title(title) {
         this._title = title;
-        console.log(title);
-        // this.render();
     }
 
     render(){
